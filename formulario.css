@@ -4,16 +4,27 @@
     box-sizing: content-box;        
 }
 
-body {
-    background:url(imagens/box.jpg);
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: 30%;
-    
+body{
+  display: block;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+}
+
+.imagem{
+  display: flex;
+  justify-items:center;
+  margin:10px;
+  margin-right: 10px;
+  
+  max-width: 30%;
+  height: 6em;
 }
 
 h1{
-    display: inline;
+    display: flex;
+    margin-left: 10px;
+    position: initial;
     color:#b81923;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    text-align: center;
     text-shadow:  5px 10px 20px   black;
@@ -23,33 +34,88 @@ h2{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+
+#cor {
+  padding: 8px;
+  border-radius: 22px;
+  border: none;
+  background-color: #f2f2f2;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+#cor option {
+  padding-left: 24px;
+  background-repeat: no-repeat;
+  background-position: left 4px center;
+}
+#cor option[value="azul"] {
+  background-image: url("https://image.flaticon.com/icons/png/512/25/25317.png");
+  background-color: #0093d3;
+  color: #fff;
+}
+#cor option[value="vermelho"] {
+  background-image: url("https://image.flaticon.com/icons/png/512/25/25332.png");
+  background-color: #b81923;
+  color: #fff;
+}
+#cor option[value="branco"] {
+  background-image: url("https://image.flaticon.com/icons/png/512/25/25305.png");
+  background-color: #f5f5f5;
+  color: #333;
+}
+#cor option[value="prata"] {
+  background-image: url("https://image.flaticon.com/icons/png/512/25/25326.png");
+  background-color: #c9c9c9;
+  color: #333;
+}
+#cor option[value="preto"] {
+  background-image: url("https://image.flaticon.com/icons/png/512/25/25313.png");
+  background-color: #333;
+  color: #fff;
+}
+#cor option[value="cinza"] {
+  background-image: url("https://image.flaticon.com/icons/png/512/25/25331.png");
+  background-color: #a6a6a6;
+  color: #fff;
+}
+
+
 .form-container {
     display: flex;
-        
+    flex-wrap: wrap;        
 }
 
 .input{
     display: flex;
+    padding: 7px;
     text-transform: uppercase;
     justify-content: space-between;
     border: 1px #a6a6a6 solid;
     border-radius: 22px;
     background-color: #fff;
-    width: 50%;
+    width: 70%;
     height: 30px;
     text-align: center;
 }
 
+.label{
+  display:flex;
+  padding: 2px;
+  text-align: center;
+}
+
 .input-side {
     display: block;
-    width: 70%;
+    max-width: 100%;
     padding: 20px;
     border: 1px solid #ddd;
     text-transform: uppercase;
 }
 
 .output-side {
-    width: 70%;
+    display: block;
+    max-width: 100%;
     padding: 20px;
     border: 1px solid #ddd;
     text-transform: uppercase;
@@ -70,10 +136,6 @@ h6 {
     display: flex;
     align-items: center;
     white-space: pre-line;
-}
-
-p{
-
 }
 
 footer {
@@ -107,8 +169,7 @@ button {
     background: radial-gradient(red, black);
     border: 1px solid black; 
     border-radius: 20px;
-    border;
-    text-align: center:
+    text-align: center;
 }
 
 .btn{
@@ -120,8 +181,6 @@ button {
     background: radial-gradient(red, black);
     border: none;
     border-radius: 20px
-    text-align: center:
-
 }
 
 /* Definindo estilos para telas pequenas */
@@ -166,51 +225,7 @@ button {
         width: 8em;
     }
 
-    #cor {
-        padding: 8px;
-        border-radius: 4px;
-        border: none;
-        background-color: #f2f2f2;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-      }
-      #cor option {
-        padding-left: 24px;
-        background-repeat: no-repeat;
-        background-position: left 4px center;
-      }
-      #cor option[value="azul"] {
-        background-image: url("https://image.flaticon.com/icons/png/512/25/25317.png");
-        background-color: #0093d3;
-        color: #fff;
-      }
-      #cor option[value="vermelho"] {
-        background-image: url("https://image.flaticon.com/icons/png/512/25/25332.png");
-        background-color: #b81923;
-        color: #fff;
-      }
-      #cor option[value="branco"] {
-        background-image: url("https://image.flaticon.com/icons/png/512/25/25305.png");
-        background-color: #f5f5f5;
-        color: #333;
-      }
-      #cor option[value="prata"] {
-        background-image: url("https://image.flaticon.com/icons/png/512/25/25326.png");
-        background-color: #c9c9c9;
-        color: #333;
-      }
-      #cor option[value="preto"] {
-        background-image: url("https://image.flaticon.com/icons/png/512/25/25313.png");
-        background-color: #333;
-        color: #fff;
-      }
-      #cor option[value="cinza"] {
-        background-image: url("https://image.flaticon.com/icons/png/512/25/25331.png");
-        background-color: #a6a6a6;
-        color: #fff;
-      }
-
+    
       select::-ms-expand { display: none; } /* Remove a seta do menu suspenso no IE11 */
       select {
         -webkit-appearance: none; /* Remove a aparência padrão do menu suspenso */
@@ -236,7 +251,7 @@ button {
       }
 
       /* Para telas menores que 768px */
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
     body {
       background-size: 50%;
     }
@@ -284,4 +299,4 @@ button {
       margin-right: 0;
     }
   }
-  
+}
