@@ -1,0 +1,140 @@
+/* Estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: url('imagens/honda.ico');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 20%;
+  }
+  
+  /* Layout de grade */
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px;
+  }
+  
+  /* Estilos dos elementos */
+  label, input {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: block;
+    text-align: center;
+    background: lightgrey;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    border: 1px solid grey;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px;
+  }
+  
+  input {
+    height: 50px;
+    background: white;
+  }
+  
+  #btnEntrar {
+    display: block;
+    margin: 5% auto 0;
+    width: 30%;
+    height: 2em;
+    font-size: 15px;
+    color: white;
+    background: radial-gradient(red, black);
+    border: none;
+    border-radius: 17px;
+    box-shadow: 0 0 20px 5px black;
+  }
+  
+  .titulo {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: -100px;
+  }
+  
+  .evo {
+    display: flex;
+    height: 8em;
+    width: 8em;
+    padding: 2px;
+  }
+  
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer img {
+    display: absolute;
+    align-items: center;
+    max-width: 3em;
+    
+    padding: 5px;
+  }
+  
+  /* Definindo estilos para telas pequenas */
+  @media (max-width: 768px) {
+    header {
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    nav a {
+      padding: 5px;
+      font-size: 16px;
+    }
+  
+    main {
+      padding: 10px;
+    }
+  
+    button {
+      padding: 5px;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  
+    footer {
+      padding: 5px;
+      font-size: 12px;
+    }
+  }
+  

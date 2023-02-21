@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HPOINT-ITAIM</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imagens/honda-car.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-tjLToUq3bPdS5Rh5p5fW0l8KY3Z9/Ych2bLugJV4/HwVumhC4tNXDM1t+MWKgWQ2t68kjXZGvjL01OocDdWwTw==" crossorigin="anonymous" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <main>
+        <div class="form-container">
+            <form id="form-login">
+                <div class="titulo">
+                    <h1>HPOINT-ITAIM</h1>
+                </div>
+                <label for="username">Nome de usuário:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button id="btnEntrar">Entrar</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <iframe class="evo" src="https://giphy.com/embed/BdUFU1x33ugla" width="50%" height="50%" style="position:relative" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <p>No trânsito respeite a vida!</p>
+        <div class="social-icons">
+            <img src="imagens/facebook.png" alt="ico facebook" />
+            <img src="imagens/instagram.png" alt="ico instagram" />
+            <img src="imagens/whatsapp.png" alt="ico whatsapp" />
+        </div>
+        <p>&copy; 2023</p>
+    </footer>
+
+    <script>
+        function validarDados(event) {
+            event.preventDefault(); // Previne o comportamento padrão do botão de enviar o formulário
+
+            // Obtém os valores dos campos de nome de usuário e senha
+            var nomeUsuario = document.getElementById("username").value;
+            var senha = document.getElementById("password").value;
+    
+            // Verifica se os campos foram preenchidos corretamente
+            if (nomeUsuario === "" || senha === "") {
+                alert("Por favor, preencha todos os campos.");
+            } else if (!senha.match(/^(?=.*[A-Z])(?=.*\d).{1,10}$/)) {
+                alert("Sua senha precisa ter uma letra maiúscula, um número e ter no máximo 10 caracteres.");
+            } else {
+                // Se os dados estiverem válidos, redirecione para a página de destino
+                window.location.href = "formulario.html";
+            }
+        }
+      
+        // Adiciona um evento de clique ao botão de entrada para chamar a função validarDados()
+        var btnEntrar = document.getElementById("btnEntrar");
+        btnEntrar.addEventListener("click", validarDados);
+    </script>
+</body>
+</html>

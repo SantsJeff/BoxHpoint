@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HPOINT-ITAIM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/honda-car.ico" type="icone-honda">
+    <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-3VKgCk72V7e1rb3odqV7aQZKtyWPV7kRssIQ9P4pwQ4e4zANh75R8+BvzOebdg5O5p5ZShf5h5v5K31+sY6Uww==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      
+    <title>Formulário de Cadastro</title>
+</head>
+
+
+<body>
+    <img class="imagem" src="imagens/honda-car.ico" alt="Ícone da página">
+    <h1>HPOINT-ITAIM</h1>
+    <div class="form-container">
+        <div class="input-side">
+            <h2>Entrada de dados:</h2>
+            <form>
+                <label for="carro">Carro:</label>
+                <input class="input" type="text" placeholder="Insira o modelo do carro"  id="carro" name="carro" required>
+
+                <label for="placa">Placa:</label>
+                <input class="input" type="text" placeholder="ABC-1234"  id="placa" name="placa" required>
+
+                <label for="cor">Cor do veículo:</label>
+                    <select class="input" id="cor" name="cor">
+                    <option value="azul"><i class="fas fa-circle fa-fw" style="color: #0A2E5C;"></i> Azul Egeu</option>
+                    <option value="vermelho"><i class="fas fa-circle fa-fw" style="color: #9B1B30;"></i> Vermelho Rallye</option>
+                    <option value="branco"><i class="fas fa-circle fa-fw" style="color: #F5F5F5;"></i> Branco Platina Pérola</option>
+                    <option value="prata"><i class="fas fa-circle fa-fw" style="color: #C3C6C8;"></i> Prata Lunar</option>
+                    <option value="preto"><i class="fas fa-circle fa-fw" style="color: #1C1C1C;"></i> Pérola Negra Cristal</option>
+                    <option value="cinza"><i class="fas fa-circle fa-fw" style="color: #444444;"></i> Cinza Sônico</option>
+                </select>
+
+                <label for="data">Data:</label>
+                <input class="input" type="date" id="data" name="data" required>
+
+                <label for="hora">Horário:</label>
+                <input class="input" type="time" id="hora" name="hora" required>
+
+                <label for="consultor">Consultor:</label>
+                <select class="input" id="consultor" name="consultor" required>
+                    <option value="" disabled selected hidden>Selecione um consultor</option>
+                    <option value="Cleidson">Cleidson</option>
+                    <option value="Sandra">Sandra</option>
+                    <option value="Andresa">Andresa</option>
+                    <option value="Jeferson Martins">Jeferson Martins</option>
+                </select>
+                
+
+                <label for="servico">Tipo de serviço:</label>
+                <select class="input" id="servico" name="servico" required>
+                    <option value=""></option>
+                    <option value="Revisão">Revisão</option>
+                    <option value="Recall">Recall</option>
+                    <option value="Express">Express</option>
+                    <option value="Retorno">Retorno</option>
+                    <option value="Serviços de Terceiros">Serviços de Terceiros</option>
+                </select>
+
+                <button type="submit" onclick="salvarDados()">Salvar</button>
+                <button class="btn" onclick="sair()">Sair</button>
+
+
+
+            </form>
+        </div>
+
+        <div class="output-side">
+            <h2>Agenda do Dia:</h2>
+            <ul id="dados-salvos"></ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <h6>No trânsito respeite a vida!</h6>
+        <img src="/imagens/honda.png" alt="logotipo honda" />
+        <p>Copyright © 2023</p>
+    </footer>
+
+
+    <script type="text/javascript" charset="utf-8">
+        // Função para salvar os dados no localStorage
+        function salvarDados() {
+            // Obtém os valores dos campos do formulário
+            var carro = document.getElementById("carro").value;
+            var placa = document.getElementById("placa").value;
+            var cor = document.getElementById("cor").value;
+            var data = document.getElementById("data").value;
+            var hora = document.getElementById("hora").value;
+            var consultor = document.getElementById("consultor").value;
+            var servico = document.getElementById("servico").value;
+
+            // Cria um objeto com os valores dos campos
+            var dados = {
+                carro: carro,
+                placa: placa,
+                cor: cor,
+                data: data.replace(/(\d{4})-(\d{2})-(\d{2})/, "$3/$2/$1"), // Alteração na forma da data
+                hora: hora,
+                consultor: consultor,
+                servico: servico
+            };
+
+            // Obtém os dados salvos no localStorage
+            var dadosSalvos = JSON.parse(localStorage.getItem("dados"));
+
+            // Verifica se já existem dados salvos no localStorage
+            if (dadosSalvos) {
+                // Adiciona os novos dados aos já existentes
+                dadosSalvos.push(dados);
+                localStorage.setItem("dados", JSON.stringify(dadosSalvos));
+            } else {
+                // Cria um novo array com os dados e salva no localStorage
+                var dadosArray = [dados];
+                localStorage.setItem("dados", JSON.stringify(dadosArray));
+            }
+
+            // Limpa os campos do formulário
+            document.getElementById("carro").value = "";
+            document.getElementById("placa").value = "";
+            document.getElementById("cor").value = "";
+            document.getElementById("data").value = "";
+            document.getElementById("hora").value = "";
+            document.getElementById("consultor").value = "";
+            document.getElementById("servico").value = "";
+
+            // Exibe os dados salvos no outro lado do formulário
+            mostrarDados();
+        }
+
+        // Função para exibir os dados salvos no localStorage
+        function mostrarDados() {
+            var dadosSalvos = JSON.parse(localStorage.getItem("dados"));
+            var dadosContainer = document.getElementById("dados-salvos");
+
+
+            // Limpa o container antes de adicionar os dados
+            dadosContainer.innerHTML = "";
+
+            // Verifica se existem dados salvos no localStorage
+            if (dadosSalvos && dadosSalvos.length > 0) {
+                // Adiciona os dados ao container
+                for (var i = 0; i < dadosSalvos.length; i++) {
+                    var dados = dadosSalvos[i];
+
+                    var dadosHtml = "<div>";
+                    dadosHtml += "<p>Carro: " + dados.carro + "</p>";
+                    dadosHtml += "<p>Placa: " + dados.placa + "</p>";
+                    dadosHtml += "<p>Cor: " + dados.cor + "</p>";
+                    dadosHtml += "<p>Data: " + dados.data + "</p>";
+                    dadosHtml += "<p>Hora: " + dados.hora + "</p>";
+                    dadosHtml += "<p>Consultor: " + dados.consultor + "</p>";
+                    dadosHtml += "<p>Serviço: " + dados.servico + "</p><br>";
+                    dadosHtml += "</div>";
+
+                    dadosContainer.innerHTML += dadosHtml;
+                }
+            } else {
+                // Se não houver dados salvos, exibe uma mensagem
+                dadosContainer.innerHTML = "<p>Nenhum dado salvo</p>";
+            }
+        }
+
+        function sair() {
+            window.location.href = "index.html";
+        }
+
+    </script>
+    
+
+</body>
+</html>
