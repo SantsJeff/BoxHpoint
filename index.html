@@ -7,8 +7,24 @@
     <link rel="shortcut icon" href="imagens/honda-car.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-tjLToUq3bPdS5Rh5p5fW0l8KY3Z9/Ych2bLugJV4/HwVumhC4tNXDM1t+MWKgWQ2t68kjXZGvjL01OocDdWwTw==" crossorigin="anonymous" />    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
 </head>
 <body>
+    <script>
+  // Initialize Firebase
+  var firebaseConfig = {
+    apiKey: "AIzaSyCOHLYq7yvyg81u10QxhS_Zezwsfraf3Ng",
+    authDomain: "boxhpoint.firebaseapp.com",
+    projectId: "boxhpoint",
+    storageBucket: "boxhpoint.appspot.com",
+    messagingSenderId: "949576203601",
+    appId: "1:949576203601:web:b0370e2a300053ea1be770",
+    measurementId: "G-4JSQ5WEWS6"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+
     <main>
         <div class="form-container">
             <form id="form-login">
