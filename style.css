@@ -55,8 +55,8 @@
   }
   
   #btnEntrar {
-    display: fixed;
-    margin: 75% auto 0;
+    display: block;
+    margin: 30% auto 0;
     width: 30%;
     height: 5em;
     font-size: 15px;
