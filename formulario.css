@@ -141,11 +141,10 @@ h6 {
 footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: #333;
     color: #fff;
-    height: 9px;
-    padding: 3px;
+    padding: 20px;
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -163,7 +162,6 @@ button {
     margin-top: 10px;
     margin-right: 265px;
     text-align: center;
-    padding: auto;
     width: 70px;
     height: 30px;
     font-size: 15px;
