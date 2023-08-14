@@ -14,6 +14,7 @@ formulario.addEventListener("submit", function(event) {
 	var cor = document.querySelector("#cor").value;
 	var consultor = document.querySelector("#consultor").value;
 	var servico = document.querySelector("#servico").value;
+	var localização = document.querySelector("#localização").value; // Obtém a localização selecionada
 
 	// cria um objeto com os dados do formulário
 	var dados = {
@@ -23,7 +24,8 @@ formulario.addEventListener("submit", function(event) {
 		placa: placa,
 		cor: cor,
 		consultor: consultor,
-		servico: servico
+		servico: servico,
+		localização: localização // Adiciona a localização ao objeto de dados
 	};
 
 	// salva os dados no localStorage
